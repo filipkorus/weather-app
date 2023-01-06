@@ -3,10 +3,10 @@ package src.utils;
 import org.apache.log4j.Logger;
 
 public class Interval {
-	private final static Logger logger = Logger.getLogger(Interval.class);
-	private Runnable runnable;
-	private int interval;
-	private String name;
+	private final Logger logger = Logger.getLogger(Interval.class);
+	private final Runnable runnable;
+	private final int interval;
+	private final String name;
 	private Thread thread;
 
 	public Interval(Runnable runnable, int interval, String name) {
@@ -17,7 +17,7 @@ public class Interval {
 	public void start() {
 		this.thread = new Thread(() -> {
 			while (true) {
-				new Thread(this.runnable).run();
+				this.runnable.run();
 
 				try {
 					Thread.sleep(this.interval);
@@ -28,7 +28,6 @@ public class Interval {
 		});
 
 		this.thread.start();
-
 		this.logger.info("Interval \"" + this.name + "\" started");
 	}
 

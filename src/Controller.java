@@ -2,11 +2,11 @@ package src;
 
 public class Controller  extends App {
 	protected static void handleStopPollingBtnClicked() {
-		if (t1.isRunning()) {
-			t1.stop();
+		if (dataPollingInterval.isRunning()) {
+			dataPollingInterval.stop();
 			stopPollingBtn.setText("Start polling data");
 		} else {
-			t1.start();
+			dataPollingInterval.start();
 			stopPollingBtn.setText("Stop polling data");
 		}
 	}

@@ -7,28 +7,24 @@ import src.utils.Interval;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class App {
 	private final static Logger logger = Logger.getLogger(App.class);
-	protected static JTextField output;
+	protected static JTextField dateField;
 	protected static JButton stopPollingBtn, interruptPollingBtn;
-
-	protected static Interval t1;
+	protected static Interval dataPollingInterval;
 	public static void createAndShowGUI() {
-		ActionListener as = new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String pressedBtnLabel = e.getActionCommand();
-				logger.info("Button \"" + pressedBtnLabel + "\" pressed");
+		ActionListener actionListener = e -> {
+			String pressedBtnLabel = e.getActionCommand();
+			logger.info("Button \"" + pressedBtnLabel + "\" pressed");
 
-				Object pressedBtn = e.getSource();
+			Object pressedBtn = e.getSource();
 
-				if (pressedBtn.equals(stopPollingBtn)) {
-					Controller.handleStopPollingBtnClicked();
-				} else if (pressedBtn.equals(interruptPollingBtn)) {
-					t1.interrupt();
-				}
+			if (pressedBtn.equals(stopPollingBtn)) {
+				Controller.handleStopPollingBtnClicked();
+			} else if (pressedBtn.equals(interruptPollingBtn)) {
+				dataPollingInterval.interrupt();
 			}
 		};
 
@@ -48,8 +44,8 @@ public class App {
 		interruptPollingBtn = new JButton("Interrupt polling data");
 
 		// add action listeners
-		stopPollingBtn.addActionListener(as);
-		interruptPollingBtn.addActionListener(as);
+		stopPollingBtn.addActionListener(actionListener);
+		interruptPollingBtn.addActionListener(actionListener);
 
 		jp.setBounds(5,50,390,300);
 //		jp.setLayout(new GridLayout(5,4,5,5));
@@ -57,29 +53,29 @@ public class App {
 		jp.setBackground(Color.red); // TODO: debug
 		jp.add(interruptPollingBtn);
 
-		// ustawienia text field
-		output = new JTextField();
-		output.setBounds(5, 5, 390, 30);
-		output.setFont(new Font("Arial", Font.BOLD,16));
-		output.setHorizontalAlignment(JTextField.RIGHT);
-		output.setEditable(false);
-		output.setBackground(Color.green); // TODO: debug
-		output.setText("date");
+		// text field settings
+		dateField = new JTextField();
+		dateField.setBounds(5, 5, 390, 30);
+		dateField.setFont(new Font("Arial", Font.BOLD,16));
+		dateField.setHorizontalAlignment(JTextField.RIGHT);
+		dateField.setEditable(false);
+		dateField.setBackground(Color.green); // TODO: debug
+		dateField.setText("date");
 
-		//		output.setMargin(new Insets(0, 0, 0, 10));
-		output.setBorder(null);
+//		output.setMargin(new Insets(0, 0, 0, 10));
+		dateField.setBorder(null);
 
-		jf.add(output);
+		jf.add(dateField);
 		jf.add(jp);
 
 		jf.setVisible(true);
 		logger.info("App launched");
 
-		t1 = new Interval(() -> {
-				JSONObject obj = HTTP.get("https://weather.fkor.us/api.php");
+		dataPollingInterval = new Interval(() -> {
+			JSONObject obj = HTTP.get("https://weather.fkor.us/api.php");
 //			output.setText(String.format("%.2f", obj.getDouble("humidity")) + "%");
-				output.setText(obj.getString("date"));
+			dateField.setText(obj.getString("date"));
 		}, 5000, "poll data every 5s");
-		t1.start();
+		dataPollingInterval.start();
 	}
 }
