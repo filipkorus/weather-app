@@ -49,7 +49,7 @@ public class Database {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
-			this.logger.info("SQL: " + query);
+			this.logger.info("SQL query: " + query);
 
 			return rs;
 		} catch (SQLException e) {

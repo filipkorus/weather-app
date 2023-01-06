@@ -14,6 +14,13 @@ public class Interval {
 		this.interval = interval;
 		this.name = name;
 	}
+
+	public Interval(Runnable runnable, int interval) {
+		this.runnable = runnable;
+		this.interval = interval;
+		this.name = String.valueOf(this.hashCode());
+	}
+
 	public void start() {
 		this.thread = new Thread(() -> {
 			while (true) {
