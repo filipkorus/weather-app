@@ -17,7 +17,7 @@ public class Database {
 	private final String USERNAME;
 	private final String PASSWORD;
 
-	private final static Logger logger = Logger.getLogger(Database.class);
+	private final Logger logger = Logger.getLogger(Database.class);
 
 	Database() {
 		Properties p = new Properties();
@@ -49,27 +49,14 @@ public class Database {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 
-			logger.info("SQL: " + query);
+			this.logger.info("SQL: " + query);
 
 			return rs;
 		} catch (SQLException e) {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			logger.warn(sw.toString());
+			this.logger.warn(sw.toString());
 		}
 		return null;
-	}
-
-	public static void main(String[] args) {
-		Database db = new Database();
-
-		new Thread(() -> {
-			ResultSet rs = db.query("SELECT * FROM weather LIMIT 5");
-			try {
-				while(rs.next()) {
-					System.out.println(rs.getDouble("hum"));
-				}
-			} catch (SQLException e) {}
-		}).start();
 	}
 }
