@@ -73,18 +73,20 @@ public class App {
 		/* set real-time data polling interval */
 		dataPollingInterval = new Interval(() -> {
 			JSONObject obj = HTTP.get("https://weather.fkor.us/api.php");
-			humidityField.setText(String.format("%.2f", obj.getDouble("humidity")) + "%");
-			tempInField.setText(String.format("%.2f", obj.getDouble("temperature_indoor")) + "°C");
-			tempOutField.setText(String.format("%.2f", obj.getDouble("temperature_outdoor")) + "°C");
+			if (obj != null) {
+				humidityField.setText(String.format("%.2f", obj.getDouble("humidity")) + "%");
+				tempInField.setText(String.format("%.2f", obj.getDouble("temperature_indoor")) + "°C");
+				tempOutField.setText(String.format("%.2f", obj.getDouble("temperature_outdoor")) + "°C");
 
-			dateField.setText(Datetime.howLongAgoFromNow(obj.getString("date")) + "s ago");
+				dateField.setText(Datetime.howLongAgoFromNow(obj.getString("date")) + "s ago");
 
-			if (!mainFrame.isVisible()) {
-				/* show main window */
-				mainFrame.setVisible(true);
-				logger.info("App launched");
+				if (!mainFrame.isVisible()) {
+					/* show main window */
+					mainFrame.setVisible(true);
+					logger.info("App launched");
+				}
 			}
-		}, 5000, "poll data every 5s");
+		}, 1000, "poll data every 1.5s");
 		dataPollingInterval.start();
 	}
 }

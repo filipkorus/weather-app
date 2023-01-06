@@ -33,7 +33,7 @@ public class HTTP {
 
 			return new JSONObject(body);
 		} catch (IOException e) {
-			logger.error(e.getCause());
+			logger.error(e.getMessage());
 		} catch (JSONException e) {
 			logger.error(e.getMessage());
 		}
