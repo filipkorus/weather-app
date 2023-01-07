@@ -7,7 +7,7 @@ public class JButtonTemplate extends JButton {
 	public JButtonTemplate(String text) {
 		super(text);
 
-		this.setFont(new Font("Arial", Font.TYPE1_FONT, 16));
+		this.setFont(new Font("Bank Gothic", Font.BOLD, 16));
 		this.setBorder(null);
 	}
 

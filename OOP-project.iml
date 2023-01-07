@@ -10,5 +10,6 @@
     <orderEntry type="library" name="json-20140107" level="project" />
     <orderEntry type="library" name="log4j-1.2.17" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.30" level="project" />
+    <orderEntry type="library" name="jfreechart-1.5.3" level="project" />
   </component>
 </module>

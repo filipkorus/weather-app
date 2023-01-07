@@ -35,12 +35,12 @@ public class Interval {
 		});
 
 		this.thread.start();
-		this.logger.info("Interval \"" + this.name + "\" started");
+		this.logger.debug("Interval \"" + this.name + "\" started");
 	}
 
 	public void stop() {
 		this.thread.stop();
-		this.logger.info("Interval \"" + this.name + "\" stopped");
+		this.logger.debug("Interval \"" + this.name + "\" stopped");
 	}
 
 	public void interrupt() {

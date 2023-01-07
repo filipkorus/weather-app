@@ -22,19 +22,18 @@ public class HTTP {
 			connection.setDoInput(true);
 			connection.connect();
 
-			logger.info("HTTP GET " + urlString + " " + connection.getResponseCode());
+			logger.debug("HTTP GET " + urlString + " " + connection.getResponseCode());
 
 			// read body
 			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			String line, body = "";
-			while ((line = reader.readLine()) != null) { body += line; }
+			String line;
+			StringBuilder body = new StringBuilder();
+			while ((line = reader.readLine()) != null) body.append(line);
 
 			connection.disconnect();
 
-			return new JSONObject(body);
-		} catch (IOException e) {
-			logger.error(e.getMessage());
-		} catch (JSONException e) {
+			return new JSONObject(body.toString());
+		} catch (IOException | JSONException e) {
 			logger.error(e.getMessage());
 		}
 
