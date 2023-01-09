@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4db9c82d-dd4b-47b8-ab05-df4fac447714" name="Changes" comment="project finished">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfreechart_1_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Datetime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Datetime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/HTTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/HTTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Interval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +40,6 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/filip/IdeaProjects/OOP-project/lib/jfreechart-1.5.3.jar",
     "node.js.detected.package.eslint": "true",
@@ -63,7 +49,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.3960739",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -126,7 +112,11 @@
       <updated>1672955193996</updated>
       <workItem from="1672955195348" duration="16618000" />
       <workItem from="1673003756135" duration="10432000" />
-      <workItem from="1673099673396" duration="25733000" />
+      <workItem from="1673099673396" duration="26105000" />
+      <workItem from="1673138921904" duration="169000" />
+      <workItem from="1673139763879" duration="182000" />
+      <workItem from="1673200888257" duration="713000" />
+      <workItem from="1673215374178" duration="4489000" />
     </task>
     <task id="LOCAL-00001" summary="minor changes">
       <created>1672971517069</created>
@@ -142,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672971606843</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="project finished">
+      <created>1673127021921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673127021922</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
