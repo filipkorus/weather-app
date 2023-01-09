@@ -27,8 +27,8 @@ public class App {
 	protected static JTextFieldTemplate humidityField, tempInField, tempOutField, refreshedAgoField;
 	protected static JButtonTemplate showGraphBtn, previousDayBtn, nextDayBtn;
 	protected static Interval dataPollingInterval;
-	private final static ImageIcon icon = new ImageIcon("resources/icon.png");
-	private static final Database db = new Database();
+	protected final static ImageIcon icon = new ImageIcon("resources/icon.png");
+	protected static final Database db = new Database();
 	public static void createAndShowGUI() {
 		ActionListener actionListener = e -> {
 			String pressedBtnLabel = e.getActionCommand();
@@ -106,7 +106,7 @@ public class App {
 		showGraphBtn.addActionListener(actionListener);
 		mainWindow.add(showGraphBtn);
 
-		/* set real-time data polling interval */
+		/* real-time data polling interval */
 		dataPollingInterval = new Interval(() -> {
 			JSONObject obj = HTTP.get("https://weather.fkor.us/api.php");
 			if (obj != null) {
@@ -124,33 +124,5 @@ public class App {
 			}
 		}, 1000, "poll data every 1s");
 		dataPollingInterval.start();
-	}
-
-	protected static void createGraph() {
-		String windowTitle = "Outdoor temperatures on " + Datetime.getDateString(currentDay);
-
-		new Thread(() -> {
-			showGraphBtn.setEnabled(false);
-
-			DefaultCategoryDataset ds = db.createDataset(currentDay);
-
-			if (ds == null) {
-				JOptionPane.showMessageDialog(mainWindow,
-				  "There is no data in the database from " + Datetime.getDateString(currentDay) + ".",
-				  "No data",
-				  JOptionPane.WARNING_MESSAGE);
-
-				showGraphBtn.setEnabled(true);
-				return;
-			}
-
-			new Graph(
-			  windowTitle,
-			  "Time", "Temperature °C",
-			  ds, icon
-			).show();
-
-			showGraphBtn.setEnabled(true);
-		}).start();
 	}
 }
