@@ -1,7 +1,6 @@
 package src;
 
 import org.apache.log4j.Logger;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -37,11 +36,11 @@ public class App {
 			Object pressedBtn = e.getSource();
 
 			if (pressedBtn.equals(showGraphBtn)) {
-				Controller.handleShowChartsBtnClicked();
+				Controller.handleShowGraphBtnClick();
 			} else if (pressedBtn.equals(previousDayBtn)) {
-				Controller.handlePreviousDayBtnClicked();
+				Controller.handlePreviousDayBtnClick();
 			} else if (pressedBtn.equals(nextDayBtn)) {
-				Controller.handleNextDayBtnClicked();
+				Controller.handleNextDayBtnClick();
 			}
 		};
 

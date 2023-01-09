@@ -9,11 +9,11 @@ import java.time.LocalDate;
 
 public class Controller extends App {
 	private final static Logger logger = Logger.getLogger(Controller.class);
-	protected static void handleShowChartsBtnClicked() {
+	protected static void handleShowGraphBtnClick() {
 		createGraph();
 	}
 
-	public static void handlePreviousDayBtnClicked() {
+	public static void handlePreviousDayBtnClick() {
 		currentDay = currentDay.plusDays(-1);
 		graphTitleLabel.setText(Datetime.getDateString(currentDay));
 
@@ -22,7 +22,7 @@ public class Controller extends App {
 		}
 	}
 
-	public static void handleNextDayBtnClicked() {
+	public static void handleNextDayBtnClick() {
 		if (currentDay.plusDays(1).equals(LocalDate.now())) {
 			nextDayBtn.setEnabled(false);
 		}
