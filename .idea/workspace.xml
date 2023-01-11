@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4db9c82d-dd4b-47b8-ab05-df4fac447714" name="Changes" comment="project finished">
-      <change afterPath="$PROJECT_DIR$/src/utils/DatabaseResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.example.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/db.example.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Datetime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Datetime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/HTTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/HTTP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Interval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +109,7 @@
       <workItem from="1673455195690" duration="1305000" />
       <workItem from="1673457004218" duration="296000" />
       <workItem from="1673457347506" duration="1966000" />
-      <workItem from="1673467953836" duration="5843000" />
+      <workItem from="1673467953836" duration="6491000" />
     </task>
     <task id="LOCAL-00001" summary="minor changes">
       <created>1672971517069</created>

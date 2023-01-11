@@ -117,11 +117,7 @@ public class Database {
 		}
 
 		return entriesCount == 0 ?
-				  new DatabaseResults("no data", 404, null) :
-				  new DatabaseResults(
-				  "success",
-				  200,
-				  dataset
-		);
+			new DatabaseResults("no data", 404, null) :
+			new DatabaseResults("success", 200, dataset);
 	}
 }
