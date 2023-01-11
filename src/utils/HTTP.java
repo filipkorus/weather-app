@@ -1,4 +1,4 @@
-package src.utils;
+package utils;
 
 import org.apache.log4j.Logger;
 import org.json.JSONException;
@@ -34,7 +34,7 @@ public class HTTP {
 
 			return new JSONObject(body.toString());
 		} catch (IOException | JSONException e) {
-			logger.error(e.getMessage());
+			logger.warn(e.getMessage());
 		}
 
 		return null;

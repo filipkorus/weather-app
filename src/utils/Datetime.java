@@ -1,4 +1,4 @@
-package src.utils;
+package utils;
 
 import java.time.Duration;
 import java.time.LocalDate;

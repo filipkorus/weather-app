@@ -1,5 +1,3 @@
-package src;
-
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -8,14 +6,14 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 
-import src.swing.JButtonTemplate;
-import src.swing.JFrameTemplate;
-import src.swing.JTextFieldTemplate;
+import swing.JButtonTemplate;
+import swing.JFrameTemplate;
+import swing.JTextFieldTemplate;
 
-import src.utils.Database;
-import src.utils.HTTP;
-import src.utils.Interval;
-import src.utils.Datetime;
+import utils.Database;
+import utils.HTTP;
+import utils.Interval;
+import utils.Datetime;
 
 public class App {
 	private final static Logger logger = Logger.getLogger(App.class);

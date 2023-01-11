@@ -1,5 +1,3 @@
-package src;
-
 import org.apache.log4j.Logger;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -8,7 +6,8 @@ import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import src.swing.JFrameTemplate;
+
+import swing.JFrameTemplate;
 
 import javax.swing.*;
 

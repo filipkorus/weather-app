@@ -1,3 +1,3 @@
 out/
-db.properties
+resources/db.properties
 *.log

@@ -1,8 +1,7 @@
-package src;
-
 import org.apache.log4j.Logger;
-import org.jfree.data.category.DefaultCategoryDataset;
-import src.utils.Datetime;
+
+import utils.DatabaseResults;
+import utils.Datetime;
 
 import javax.swing.*;
 import java.time.LocalDate;
@@ -37,25 +36,33 @@ public class Controller extends App {
 		new Thread(() -> {
 			showGraphBtn.setEnabled(false);
 
-			DefaultCategoryDataset ds = db.createDataset(currentDay);
+			DatabaseResults dr = db.createDataset(currentDay);
 
-			if (ds == null) {
+			showGraphBtn.setEnabled(true);
+
+			if (dr.responseCode() == 404) {
 				JOptionPane.showMessageDialog(mainWindow,
 						  "There is no data in the database from " + Datetime.getDateString(currentDay) + ".",
 						  "No data",
 						  JOptionPane.WARNING_MESSAGE);
 
-				showGraphBtn.setEnabled(true);
+				return;
+			}
+
+			if (dr.responseCode() == 500) {
+				JOptionPane.showMessageDialog(mainWindow,
+						  "Unexpected database error occurred :(",
+						  "Error",
+						  JOptionPane.ERROR_MESSAGE);
+
 				return;
 			}
 
 			new Graph(
 					  windowTitle,
 					  "Time", "Temperature [°C]",
-					  ds, icon
+					  dr.data(), icon
 			).show();
-
-			showGraphBtn.setEnabled(true);
 		}).start();
 	}
 }

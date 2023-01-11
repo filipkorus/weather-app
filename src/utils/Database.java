@@ -1,4 +1,4 @@
-package src.utils;
+package utils;
 
 import org.apache.log4j.Logger;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -15,9 +15,9 @@ public class Database {
 		PASSWORD
 	}
 
-	private final String DB_URL;
-	private final String USERNAME;
-	private final String PASSWORD;
+	private final String DB_URL, USERNAME, PASSWORD;
+
+	private Connection connection = null;
 
 	private final Logger logger = Logger.getLogger(Database.class);
 
@@ -25,7 +25,7 @@ public class Database {
 		Properties p = new Properties();
 		File file = null;
 		try {
-			file = new File("db.properties");
+			file = new File("resources/db.properties");
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 			System.exit(1);
@@ -43,26 +43,47 @@ public class Database {
 		this.DB_URL = p.getProperty(DB.DB_URL.toString());
 		this.USERNAME = p.getProperty(DB.USERNAME.toString());
 		this.PASSWORD = p.getProperty(DB.PASSWORD.toString());
+
+		if (this.DB_URL == null || this.USERNAME == null || this.PASSWORD == null) {
+			this.logger.error("Database credentials not set up properly in db.properties file");
+			System.exit(1);
+		}
+
+		establishConnection();
+	}
+
+	private void establishConnection() {
+		try {
+			this.connection = DriverManager.getConnection(this.DB_URL, this.USERNAME, this.PASSWORD);
+		} catch (SQLException e) {
+			StringWriter sw = new StringWriter();
+			e.printStackTrace(new PrintWriter(sw));
+			this.logger.error(sw.toString());
+			System.exit(1);
+		}
 	}
 
 	private ResultSet query(String query) {
+		if (this.connection == null) {
+			establishConnection();
+		}
+
+		ResultSet rs = null;
 		try {
-			Connection conn = DriverManager.getConnection(this.DB_URL, this.USERNAME, this.PASSWORD);
-			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-
+			Statement stmt = this.connection.createStatement();
 			this.logger.debug("SQL query: " + query);
+			rs = stmt.executeQuery(query);
 
-			return rs;
-		} catch (SQLException | com.mysql.cj.exceptions.CJCommunicationsException e) {
+		} catch (SQLException e) {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			this.logger.warn(sw.toString());
+			this.logger.error(sw.toString());
+			System.exit(1);
 		}
-		return null;
+		return rs;
 	}
 
-	public DefaultCategoryDataset createDataset(LocalDate day) {
+	public DatabaseResults createDataset(LocalDate day) {
 		String month = "" + day.getMonthValue();
 		if (month.length() == 1) {
 			month = "0" + month;
@@ -77,18 +98,17 @@ public class Database {
 
 		ResultSet rs = this.query("SELECT temp_out, HOUR(datetime) as hr, MINUTE(datetime) as min FROM weather WHERE DATE(datetime) = '" + date + "' ORDER BY datetime ASC;");
 		if (rs == null) {
-			return null;
+			return new DatabaseResults("Database error", 500, null);
 		}
 
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		String series1 = "Outdoor temperature";
-
 		int entriesCount = 0;
+
 		try {
 			while(rs.next()) {
 				String hr = rs.getString("hr"), min = rs.getString("min");
 
-				dataset.addValue(rs.getDouble("temp_out"), series1, hr + ":" + (min.length() == 1 ? "0" + min : min));
+				dataset.addValue(rs.getDouble("temp_out"), "Outdoor temperature", hr + ":" + (min.length() == 1 ? "0" + min : min));
 
 				++entriesCount;
 			}
@@ -96,6 +116,12 @@ public class Database {
 			logger.warn(e.getMessage());
 		}
 
-		return entriesCount == 0 ? null : dataset;
+		return entriesCount == 0 ?
+				  new DatabaseResults("no data", 404, null) :
+				  new DatabaseResults(
+				  "success",
+				  200,
+				  dataset
+		);
 	}
 }
