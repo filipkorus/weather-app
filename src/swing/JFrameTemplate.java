@@ -13,6 +13,8 @@ public class JFrameTemplate extends JFrame {
 		this.setLocationRelativeTo(null);
 		if (exitOnClose) {
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		} else {
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		}
 	}
 
