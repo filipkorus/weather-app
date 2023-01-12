@@ -6,12 +6,25 @@ import utils.Datetime;
 import javax.swing.*;
 import java.time.LocalDate;
 
+/**
+ * app events' handler
+ */
 public class Controller extends App {
+	/**
+	 * logger for Controller class
+	 */
 	private final static Logger logger = Logger.getLogger(Controller.class);
+
+	/**
+	 * "show graph" button click handler
+	 */
 	protected static void handleShowGraphBtnClick() {
 		createGraph();
 	}
 
+	/**
+	 * "previous day" button click handler
+	 */
 	public static void handlePreviousDayBtnClick() {
 		currentDay = currentDay.plusDays(-1);
 		graphTitleLabel.setText(Datetime.getDateString(currentDay));
@@ -21,6 +34,9 @@ public class Controller extends App {
 		}
 	}
 
+	/**
+	 * "next day" button click handler
+	 */
 	public static void handleNextDayBtnClick() {
 		if (currentDay.plusDays(1).equals(LocalDate.now())) {
 			nextDayBtn.setEnabled(false);
@@ -30,6 +46,9 @@ public class Controller extends App {
 		graphTitleLabel.setText(Datetime.getDateString(currentDay));
 	}
 
+	/**
+	 * getting dataset from database and creates graph, all of these in a separate Thread
+	 */
 	private static void createGraph() {
 		String windowTitle = "Outdoor temperatures on " + Datetime.getDateString(currentDay);
 
@@ -42,8 +61,8 @@ public class Controller extends App {
 
 			if (dr.responseCode() == 404) {
 				JOptionPane.showMessageDialog(mainWindow,
-						  "There is no data in the database from " + Datetime.getDateString(currentDay) + ".",
-						  "No data",
+						  "There is no dataset in the database from " + Datetime.getDateString(currentDay) + ".",
+						  "No dataset",
 						  JOptionPane.WARNING_MESSAGE);
 
 				return;
@@ -61,7 +80,7 @@ public class Controller extends App {
 			new Graph(
 					  windowTitle,
 					  "Time", "Temperature [°C]",
-					  dr.data(), icon
+					  dr.dataset(), icon
 			).show();
 		}).start();
 	}

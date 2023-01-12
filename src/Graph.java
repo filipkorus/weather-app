@@ -11,12 +11,43 @@ import swing.JFrameTemplate;
 
 import javax.swing.*;
 
+/**
+ * creates graph window
+ */
 public class Graph extends App {
+	/**
+	 * logger for App class
+ 	 */
 	private final Logger logger = Logger.getLogger(Graph.class);
+
+	/**
+	 * icon for newly created windows
+ 	 */
 	private final ImageIcon icon;
-	private final String windowTitle, xAxisLabel, yAxisLabel;
+
+	/**
+	 * @variable windowTitle xd
+	 */
+	private final String windowTitle;
+
+	/**
+	 * axis label for graph
+	 */
+	private final String xAxisLabel, yAxisLabel;
+
+	/**
+	 * dataset to create graph from
+	 */
 	private final DefaultCategoryDataset dataset;
 
+	/**
+	 *
+	 * @param windowTitle title of window with graph
+	 * @param xAxisLabel x axis label
+	 * @param yAxisLabel y axis label
+	 * @param dataset dataset to create graph from
+	 * @param icon icon form window with graph
+	 */
 	public Graph(String windowTitle, String xAxisLabel, String yAxisLabel, DefaultCategoryDataset dataset, ImageIcon icon) {
 		this.windowTitle = windowTitle;
 		this.xAxisLabel = xAxisLabel;
@@ -25,6 +56,9 @@ public class Graph extends App {
 		this.icon = icon;
 	}
 
+	/**
+	 * shows window with graph
+	 */
 	public void show() {
 		JFrameTemplate graphWindow = new JFrameTemplate(windowTitle, 1000, 600, icon, false);
 		graphWindow.setResizable(true);

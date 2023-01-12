@@ -15,17 +15,58 @@ import utils.HTTP;
 import utils.Interval;
 import utils.Datetime;
 
+/**
+ * main app class
+ */
 public class App {
+	/**
+	 * logger for App class
+	 */
 	private final static Logger logger = Logger.getLogger(App.class);
 
+	/**
+	 * label
+	 */
 	protected static JTextFieldTemplate realTimeDataPanelLabel, humidityLabel, tempInLabel, tempOutLabel, refreshedAgoLabel, navigationPanelLabel, graphTitleLabel;
+
+	/**
+	 * currently chosen day
+	 */
 	protected static LocalDate currentDay = LocalDate.now();
+
+	/**
+	 * main window
+	 */
 	protected static JFrameTemplate mainWindow;
+
+	/**
+	 * editable text field
+	 */
 	protected static JTextFieldTemplate humidityField, tempInField, tempOutField, refreshedAgoField;
+
+	/**
+	 * button
+	 */
 	protected static JButtonTemplate showGraphBtn, previousDayBtn, nextDayBtn;
+
+	/**
+	 * Interval to poll dataset every second
+	 */
 	protected static Interval dataPollingInterval;
+
+	/**
+	 * window icon
+	 */
 	protected final static ImageIcon icon = new ImageIcon("resources/icon.png");
+
+	/**
+	 * database instance
+	 */
 	protected static final Database db = new Database();
+
+	/**
+	 * app's main method
+	 */
 	public static void createAndShowGUI() {
 		ActionListener actionListener = e -> {
 			String pressedBtnLabel = e.getActionCommand();
@@ -45,8 +86,8 @@ public class App {
 		/* application setup */
 		mainWindow = new JFrameTemplate("Weather App", 500, 445, icon);
 
-		/* real-time data panel */
-		realTimeDataPanelLabel = new JTextFieldTemplate("Real-time data from Arduino", 16, JTextField.CENTER);
+		/* real-time dataset panel */
+		realTimeDataPanelLabel = new JTextFieldTemplate("Real-time dataset from Arduino", 16, JTextField.CENTER);
 		realTimeDataPanelLabel.setBounds(new Rectangle(5, 5, 475, 40));
 		mainWindow.add(realTimeDataPanelLabel);
 
@@ -70,7 +111,7 @@ public class App {
 		refreshedAgoField = new JTextFieldTemplate("date", 16, JTextField.RIGHT);
 		realTimeDataPanel.add(refreshedAgoLabel); realTimeDataPanel.add(refreshedAgoField);
 
-		/* add real-time data panel to main window */
+		/* add real-time dataset panel to main window */
 		mainWindow.add(realTimeDataPanel);
 
 		JSeparator sep = new JSeparator();
@@ -103,7 +144,7 @@ public class App {
 		showGraphBtn.addActionListener(actionListener);
 		mainWindow.add(showGraphBtn);
 
-		/* real-time data polling interval */
+		/* real-time dataset polling interval */
 		dataPollingInterval = new Interval(() -> {
 			JSONObject obj = HTTP.get("https://weather.fkor.us/api.php");
 			if (obj != null) {
@@ -119,7 +160,15 @@ public class App {
 					logger.info("App launched");
 				}
 			}
-		}, 1000, "poll data every 1s");
+		}, 1000, "poll dataset every 1s");
 		dataPollingInterval.start();
+	}
+
+	/**
+	 * entry point to application
+	 * @param args CLI arguments
+	 */
+	public static void main(String[] args) {
+		javax.swing.SwingUtilities.invokeLater(App::createAndShowGUI);
 	}
 }

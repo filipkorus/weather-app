@@ -11,7 +11,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class HTTP {
+	// logger for HTTP class
 	private final static Logger logger = Logger.getLogger(HTTP.class);
+
+	/**
+	 *
+	 * @param urlString URL to make HTTP GET request
+	 * @return HTTP GET response as a JSON object or null if there was an error
+	 */
 	public static JSONObject get(String urlString) {
 		try {
 			URL url = new URL(urlString);

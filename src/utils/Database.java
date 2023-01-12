@@ -8,19 +8,37 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.Properties;
 
+/**
+ * Database API
+ */
 public class Database {
+	/**
+	 * enum with fields needed to be read from resources/db.properties file
+	 */
 	enum DB {
 		DB_URL,
 		USERNAME,
 		PASSWORD
 	}
 
+	/**
+	 * database credentials
+ 	 */
 	private final String DB_URL, USERNAME, PASSWORD;
 
+	/**
+	 * database connection instance
+	 */
 	private Connection connection = null;
 
+	/**
+	 * logger for Database class
+	 */
 	private final Logger logger = Logger.getLogger(Database.class);
 
+	/**
+	 * reads resources/db.properties (file containing database credentials), establish connection to database
+	 */
 	public Database() {
 		Properties p = new Properties();
 		File file = null;
@@ -52,19 +70,27 @@ public class Database {
 		establishConnection();
 	}
 
+	/**
+	 * establish connection to database
+	 */
 	private void establishConnection() {
 		try {
 			this.connection = DriverManager.getConnection(this.DB_URL, this.USERNAME, this.PASSWORD);
 		} catch (SQLException e) {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			this.logger.error(sw.toString());
-			System.exit(1);
+			this.logger.warn(sw.toString());
+//			System.exit(1);
 		}
 	}
 
+	/**
+	 * executes SQL query
+	 * @param query SQL query string
+	 * @return ResultSet with results from database
+	 */
 	private ResultSet query(String query) {
-		if (this.connection == null) {
+		while (this.connection == null) {
 			establishConnection();
 		}
 
@@ -77,12 +103,16 @@ public class Database {
 		} catch (SQLException e) {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			this.logger.error(sw.toString());
-			System.exit(1);
+			this.logger.warn(sw.toString());
 		}
 		return rs;
 	}
 
+	/**
+	 * creates dataset from given day
+	 * @param day day to create dataset from
+	 * @return DatabaseResults with response from database
+	 */
 	public DatabaseResults createDataset(LocalDate day) {
 		String month = "" + day.getMonthValue();
 		if (month.length() == 1) {
@@ -117,7 +147,7 @@ public class Database {
 		}
 
 		return entriesCount == 0 ?
-			new DatabaseResults("no data", 404, null) :
+			new DatabaseResults("no dataset", 404, null) :
 			new DatabaseResults("success", 200, dataset);
 	}
 }
