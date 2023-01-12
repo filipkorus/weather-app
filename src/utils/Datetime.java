@@ -5,6 +5,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * a set of datetime parsing methods
+ */
 public class Datetime {
 	/**
 	 * parses date from String (in format yyyy-MM-dd HH:mm:ss) to LocalDateTime

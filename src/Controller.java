@@ -16,40 +16,9 @@ public class Controller extends App {
 	private final static Logger logger = Logger.getLogger(Controller.class);
 
 	/**
-	 * "show graph" button click handler
+	 * "show graph" button click handler: gets dataset from database and creates graph, all of these in a separate Thread
 	 */
 	protected static void handleShowGraphBtnClick() {
-		createGraph();
-	}
-
-	/**
-	 * "previous day" button click handler
-	 */
-	public static void handlePreviousDayBtnClick() {
-		currentDay = currentDay.plusDays(-1);
-		graphTitleLabel.setText(Datetime.getDateString(currentDay));
-
-		if (!currentDay.equals(LocalDate.now())) {
-			nextDayBtn.setEnabled(true);
-		}
-	}
-
-	/**
-	 * "next day" button click handler
-	 */
-	public static void handleNextDayBtnClick() {
-		if (currentDay.plusDays(1).equals(LocalDate.now())) {
-			nextDayBtn.setEnabled(false);
-		}
-
-		currentDay = currentDay.plusDays(1);
-		graphTitleLabel.setText(Datetime.getDateString(currentDay));
-	}
-
-	/**
-	 * getting dataset from database and creates graph, all of these in a separate Thread
-	 */
-	private static void createGraph() {
 		String windowTitle = "Outdoor temperatures on " + Datetime.getDateString(currentDay);
 
 		new Thread(() -> {
@@ -83,5 +52,29 @@ public class Controller extends App {
 					  dr.dataset(), icon
 			).show();
 		}).start();
+	}
+
+	/**
+	 * "previous day" button click handler
+	 */
+	protected static void handlePreviousDayBtnClick() {
+		currentDay = currentDay.plusDays(-1);
+		graphTitleLabel.setText(Datetime.getDateString(currentDay));
+
+		if (!currentDay.equals(LocalDate.now())) {
+			nextDayBtn.setEnabled(true);
+		}
+	}
+
+	/**
+	 * "next day" button click handler
+	 */
+	protected static void handleNextDayBtnClick() {
+		if (currentDay.plusDays(1).equals(LocalDate.now())) {
+			nextDayBtn.setEnabled(false);
+		}
+
+		currentDay = currentDay.plusDays(1);
+		graphTitleLabel.setText(Datetime.getDateString(currentDay));
 	}
 }

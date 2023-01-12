@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4db9c82d-dd4b-47b8-ab05-df4fac447714" name="Changes" comment="project finished">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/db.example.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/db.example.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JButtonTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JFrameTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/swing/JTextFieldTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/DatabaseResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/DatabaseResults.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Datetime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Datetime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/HTTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/HTTP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Interval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Interval.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,16 +73,9 @@
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="OOP-project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="OOP-project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,7 +84,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +113,8 @@
       <workItem from="1673457347506" duration="1966000" />
       <workItem from="1673467953836" duration="6612000" />
       <workItem from="1673512829843" duration="5832000" />
-      <workItem from="1673523940960" duration="1568000" />
+      <workItem from="1673523940960" duration="1731000" />
+      <workItem from="1673551341136" duration="1615000" />
     </task>
     <task id="LOCAL-00001" summary="minor changes">
       <created>1672971517069</created>

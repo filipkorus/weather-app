@@ -6,19 +6,29 @@ import org.apache.log4j.Logger;
  * Interval class provides easy-to-use API for running Runnable in interval (every given time).
  */
 public class Interval {
-	// logger for Interval class
+	/**
+	 * logger for Interval class
+	 */
 	private final Logger logger = Logger.getLogger(Interval.class);
 
-	// Runnable instance to run every given interval time
+	/**
+	 * Runnable instance to run every given interval time
+	 */
 	private final Runnable runnable;
 
-	// time in milliseconds to run Runnable instance every given interval time
+	/**
+	 * time in milliseconds to run Runnable instance every given interval time
+	 */
 	private final int interval;
 
-	// name of the interval
+	/**
+	 * name of the interval
+	 */
 	private final String name;
 
-	// working thread
+	/**
+	 * working thread
+	 */
 	private Thread thread;
 
 	/**
