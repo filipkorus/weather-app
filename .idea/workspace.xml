@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4db9c82d-dd4b-47b8-ab05-df4fac447714" name="Changes" comment="project finished">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/preview/daily-graph-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/preview/daily-graph-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/preview/main-window.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/db.example.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +117,7 @@
       <workItem from="1673616380243" duration="306000" />
       <workItem from="1673738409961" duration="812000" />
       <workItem from="1673856388349" duration="236000" />
-      <workItem from="1674082832135" duration="1051000" />
+      <workItem from="1674082832135" duration="1743000" />
     </task>
     <task id="LOCAL-00001" summary="minor changes">
       <created>1672971517069</created>
