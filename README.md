@@ -1,5 +1,5 @@
 # Weather app
-Weather app written in Java (Swing, JDBC) for OOP course at AGH UST, ICT - 3rd semester.
+Weather app written in Java (Swing, JDBC) for OOP course project at AGH UST, ICT - 3rd semester.
 
 **Author**: [Filip Korus](https://fkor.us/) <[fkorus@student.agh.edu.pl](mailto:fkorus@student.agh.edu.pl)>
 
